@@ -119,4 +119,8 @@ final class SuperPayDashboardViewController: UIViewController, SuperPayDashboard
   private func topupButtonDidTap() {
     
   }
+  
+  func updateBalance(_ balance: String) {
+    balanceAmountLabel.text = balance
+  }
 }
