@@ -9,6 +9,7 @@ import ModernRIBs
 import UIKit
 
 protocol CardOnFileDashboardPresentableListener: AnyObject {
+  func didTapAddPaymentMethod()
 }
 
 final class CardOnFileDashboardViewController: UIViewController, CardOnFileDashboardPresentable, CardOnFileDashboardViewControllable {
@@ -37,7 +38,7 @@ final class CardOnFileDashboardViewController: UIViewController, CardOnFileDashb
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle("전체보기", for: .normal)
     button.setTitleColor(.systemBlue, for: .normal)
-    button.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
+    button.addTarget(self, action: #selector(didTapSeeAllButton), for: .touchUpInside)
     return button
   }()
   
@@ -56,7 +57,7 @@ final class CardOnFileDashboardViewController: UIViewController, CardOnFileDashb
     button.translatesAutoresizingMaskIntoConstraints = false
     button.roundCorners()
     button.backgroundColor = .systemGray4
-    button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+    button.addTarget(self, action: #selector(didTapAddMethodButton), for: .touchUpInside)
     return button
   }()
   
@@ -106,12 +107,12 @@ final class CardOnFileDashboardViewController: UIViewController, CardOnFileDashb
   }
 
   @objc
-  private func seeAllButtonTapped() {
+  private func didTapSeeAllButton() {
     
   }
   
   @objc
-  private func addButtonTapped() {
-    
+  private func didTapAddMethodButton() {
+    listener?.didTapAddPaymentMethod()
   }
 }

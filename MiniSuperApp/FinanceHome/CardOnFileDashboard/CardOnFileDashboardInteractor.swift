@@ -18,13 +18,14 @@ protocol CardOnFileDashboardPresentable: Presentable {
 }
 
 protocol CardOnFileDashboardListener: AnyObject {
+  func cardOnFileDashboardDidTapAddPaymentMethod()
 }
 
 protocol CardOnfileDashboardInteractorDepenedency {
   var cardOnFileRepository: CardOnfileRepository { get }
 }
 
-final class CardOnFileDashboardInteractor: PresentableInteractor<CardOnFileDashboardPresentable>, CardOnFileDashboardInteractable, CardOnFileDashboardPresentableListener {
+final class CardOnFileDashboardInteractor: PresentableInteractor<CardOnFileDashboardPresentable> {
   
   weak var router: CardOnFileDashboardRouting?
   weak var listener: CardOnFileDashboardListener?
@@ -57,5 +58,20 @@ final class CardOnFileDashboardInteractor: PresentableInteractor<CardOnFileDashb
     
     cancellables.forEach { $0.cancel() }
     cancellables.removeAll()
+  }
+}
+
+// MARK: - CardOnFileDashboardInteractable
+
+extension CardOnFileDashboardInteractor: CardOnFileDashboardInteractable {
+  
+}
+
+// MARK: - CardOnFileDashboardPresentableListener
+
+extension CardOnFileDashboardInteractor: CardOnFileDashboardPresentableListener {
+  
+  func didTapAddPaymentMethod() {
+    listener?.cardOnFileDashboardDidTapAddPaymentMethod()
   }
 }
