@@ -21,7 +21,7 @@ protocol AddPaymentMethodListener: AnyObject {
 }
 
 protocol AddPaymentMethodInteractorDependency {
-  var cardOnFileRepository: CardOnfileRepository { get }
+  var cardOnFileRepository: CardOnFileRepository { get }
 }
 
 final class AddPaymentMethodInteractor: PresentableInteractor<AddPaymentMethodPresentable> {

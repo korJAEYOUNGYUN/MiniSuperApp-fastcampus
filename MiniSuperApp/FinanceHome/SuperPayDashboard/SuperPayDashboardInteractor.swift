@@ -21,6 +21,7 @@ protocol SuperPayDashboardPresentable: Presentable {
 
 protocol SuperPayDashboardListener: AnyObject {
   
+  func superPayDashboardDidTapTopup()
 }
 
 protocol SuperPayDashboardInteractorDependency {
@@ -28,7 +29,7 @@ protocol SuperPayDashboardInteractorDependency {
   var balanceFormatter: NumberFormatter { get }
 }
 
-final class SuperPayDashboardInteractor: PresentableInteractor<SuperPayDashboardPresentable>, SuperPayDashboardInteractable, SuperPayDashboardPresentableListener {
+final class SuperPayDashboardInteractor: PresentableInteractor<SuperPayDashboardPresentable> {
   
   weak var router: SuperPayDashboardRouting?
   weak var listener: SuperPayDashboardListener?
@@ -61,5 +62,20 @@ final class SuperPayDashboardInteractor: PresentableInteractor<SuperPayDashboard
   
   override func willResignActive() {
     super.willResignActive()
+  }
+}
+
+// MARK: - SuperPayDashboardInteractable
+
+extension SuperPayDashboardInteractor: SuperPayDashboardInteractable {
+  
+}
+
+// MARK: - SuperPayDashboardPresentableListener
+
+extension SuperPayDashboardInteractor: SuperPayDashboardPresentableListener {
+  
+  func didTapTopup() {
+    listener?.superPayDashboardDidTapTopup()
   }
 }
