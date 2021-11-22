@@ -51,6 +51,10 @@ extension FinanceHomeInteractor: FinanceHomeInteractable {
   func addPaymentMethodDidTapClose() {
     router?.detachAddPaymentMethod()
   }
+  
+  func addPaymentMethodDidAddCard(paymentMethod: PaymentMethod) {
+    router?.detachAddPaymentMethod()
+  }
 }
 
 // MARK: - FinanceHomePresentableListener
