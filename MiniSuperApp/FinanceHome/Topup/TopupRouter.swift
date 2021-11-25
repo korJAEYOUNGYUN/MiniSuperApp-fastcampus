@@ -8,7 +8,8 @@
 import ModernRIBs
 
 protocol TopupInteractable: Interactable,
-                            AddPaymentMethodListener {
+                            AddPaymentMethodListener,
+                            EnterAmountListener {
   var router: TopupRouting? { get set }
   var listener: TopupListener? { get set }
   var presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy { get }
@@ -24,13 +25,18 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
   private let addPaymentMethodBuildable: AddPaymentMethodBuildable
   private var addPaymentMethodRouting: Routing?
   
+  private let enterAmountBuildable: EnterAmountBuildable
+  private var enterAmountRouting: Routing?
+  
   init(
     interactor: TopupInteractable,
     viewController: ViewControllable,
-    addPaymentMethodBuildable: AddPaymentMethodBuildable
+    addPaymentMethodBuildable: AddPaymentMethodBuildable,
+    enterAmountBuildable: EnterAmountBuildable
   ) {
     self.viewController = viewController
     self.addPaymentMethodBuildable = addPaymentMethodBuildable
+    self.enterAmountBuildable = enterAmountBuildable
     super.init(interactor: interactor)
     interactor.router = self
   }
@@ -59,6 +65,24 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
     
     dismissPresentedNavigation {
       self.addPaymentMethodRouting = nil
+      self.detachChild(router)
+    }
+  }
+  
+  func attachEnterAmount() {
+    guard enterAmountRouting == nil else { return }
+    
+    let router = enterAmountBuildable.build(withListener: interactor)
+    presentInsideNavigation(router.viewControllable)
+    attachChild(router)
+    enterAmountRouting = router
+  }
+  
+  func detachEnterAmount() {
+    guard let router = enterAmountRouting else { return }
+    
+    dismissPresentedNavigation {
+      self.enterAmountRouting = nil
       self.detachChild(router)
     }
   }
