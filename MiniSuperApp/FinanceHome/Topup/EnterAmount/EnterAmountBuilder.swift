@@ -8,12 +8,13 @@
 import ModernRIBs
 
 protocol EnterAmountDependency: Dependency {
-  
+  var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { get }
 }
 
-final class EnterAmountComponent: Component<EnterAmountDependency> {
-  
-  
+final class EnterAmountComponent: Component<EnterAmountDependency>, EnterAmountInteractorDependency {
+  var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> {
+    return dependency.selectedPaymentMethod
+  }
 }
 
 // MARK: - Builder
@@ -31,7 +32,7 @@ final class EnterAmountBuilder: Builder<EnterAmountDependency>, EnterAmountBuild
   func build(withListener listener: EnterAmountListener) -> EnterAmountRouting {
     let component = EnterAmountComponent(dependency: dependency)
     let viewController = EnterAmountViewController()
-    let interactor = EnterAmountInteractor(presenter: viewController)
+    let interactor = EnterAmountInteractor(presenter: viewController, dependency: component)
     interactor.listener = listener
     return EnterAmountRouter(interactor: interactor, viewController: viewController)
   }

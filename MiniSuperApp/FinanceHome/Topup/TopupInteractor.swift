@@ -13,6 +13,8 @@ protocol TopupRouting: Routing {
   func detachAddPaymentMethod()
   func attachEnterAmount()
   func detachEnterAmount()
+  func attachCardOnFile(paymentMethods: [PaymentMethod])
+  func detachCardOnFile()
 }
 
 protocol TopupListener: AnyObject {
@@ -20,8 +22,8 @@ protocol TopupListener: AnyObject {
 }
 
 protocol TopupInteractorDependency {
-  
   var cardOnFileRepository: CardOnFileRepository { get }
+  var paymentMethodStream: CurrentValuePublisher<PaymentMethod> { get }
 }
 
 final class TopupInteractor: Interactor {
@@ -30,6 +32,10 @@ final class TopupInteractor: Interactor {
   weak var listener: TopupListener?
   
   let presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy
+  
+  private var paymenntMethods: [PaymentMethod] {
+    return dependency.cardOnFileRepository.cardOnFile.value
+  }
   
   private let dependency: TopupInteractorDependency
   
@@ -43,10 +49,12 @@ final class TopupInteractor: Interactor {
   override func didBecomeActive() {
     super.didBecomeActive()
     
-    if dependency.cardOnFileRepository.cardOnFile.value.isEmpty {
-      router?.attachAddPaymentMethod()
-    } else {
+    if let card = dependency.cardOnFileRepository.cardOnFile.value.first {
+      dependency.paymentMethodStream.send(card)
       router?.attachEnterAmount()
+    } else {
+      router?.attachAddPaymentMethod()
+      
     }
   }
   
@@ -81,5 +89,24 @@ extension TopupInteractor: TopupInteractable {
   func enterAmountDidTapClose() {
     router?.detachEnterAmount()
     listener?.topupDidClose()
+  }
+  
+  func enterAmountDidTapPaymentMethod() {
+    router?.attachCardOnFile(paymentMethods: paymenntMethods)
+  }
+  
+  func cardOnFileDidTapClose() {
+    router?.detachCardOnFile()
+  }
+  
+  func cardOnFileDidTapAddCard() {
+    
+  }
+  
+  func cardOnFileDidSelect(at index: Int) {
+    if let selected = paymenntMethods[safe: index] {
+      dependency.paymentMethodStream.send(selected)
+    }
+    router?.detachCardOnFile()
   }
 }
