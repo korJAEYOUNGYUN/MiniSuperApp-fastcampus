@@ -65,6 +65,10 @@ extension FinanceHomeInteractor: FinanceHomeInteractable {
   func topupDidClose() {
     router?.detachTopup()
   }
+  
+  func topupDidFinish() {
+    router?.detachTopup()
+  }
 }
 
 // MARK: - FinanceHomePresentableListener

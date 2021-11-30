@@ -9,12 +9,12 @@ import ModernRIBs
 
 protocol EnterAmountDependency: Dependency {
   var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { get }
+  var superPayRepository: SuperPayRepository { get }
 }
 
 final class EnterAmountComponent: Component<EnterAmountDependency>, EnterAmountInteractorDependency {
-  var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> {
-    return dependency.selectedPaymentMethod
-  }
+  var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { dependency.selectedPaymentMethod }
+  var superPayRepository: SuperPayRepository { dependency.superPayRepository }
 }
 
 // MARK: - Builder

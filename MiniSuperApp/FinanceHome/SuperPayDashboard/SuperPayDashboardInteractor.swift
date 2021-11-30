@@ -52,6 +52,7 @@ final class SuperPayDashboardInteractor: PresentableInteractor<SuperPayDashboard
     super.didBecomeActive()
     
     dependency.balance
+      .receive(on: DispatchQueue.main)
       .sink { [weak self] balance in
         self?.dependency.balanceFormatter.string(from: NSNumber(value: balance)).map {
           self?.presenter.updateBalance($0)

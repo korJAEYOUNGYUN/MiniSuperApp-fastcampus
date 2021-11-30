@@ -7,6 +7,7 @@
 
 import ModernRIBs
 import Combine
+import Foundation
 
 protocol EnterAmountRouting: ViewableRouting {
   
@@ -16,15 +17,19 @@ protocol EnterAmountPresentable: Presentable {
   var listener: EnterAmountPresentableListener? { get set }
   
   func updateSelectedPaymentMethod(with viewModel: SelectedPaymentMethodViewModel)
+  func startLoading()
+  func stopLoading()
 }
 
 protocol EnterAmountListener: AnyObject {
   func enterAmountDidTapClose()
   func enterAmountDidTapPaymentMethod()
+  func enterAmountDidFinishTopup()
 }
 
 protocol EnterAmountInteractorDependency {
   var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { get }
+  var superPayRepository: SuperPayRepository { get }
 }
 
 final class EnterAmountInteractor: PresentableInteractor<EnterAmountPresentable> {
@@ -75,6 +80,20 @@ extension EnterAmountInteractor: EnterAmountPresentableListener {
   }
   
   func didTapTopup(with amount: Double) {
+    presenter.startLoading()
     
+    dependency.superPayRepository.topup(
+      amount: amount,
+      paymentMethodID: dependency.selectedPaymentMethod.value.id
+    )
+      .receive(on: DispatchQueue.main)
+      .sink(
+        receiveCompletion: { [weak self] _ in
+          self?.presenter.stopLoading()
+        }, receiveValue: { [weak self] in
+          self?.listener?.enterAmountDidFinishTopup()
+        }
+      )
+      .store(in: &cancellables)
   }
 }
