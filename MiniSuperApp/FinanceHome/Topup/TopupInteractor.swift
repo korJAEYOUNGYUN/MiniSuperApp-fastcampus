@@ -9,12 +9,13 @@ import ModernRIBs
 
 protocol TopupRouting: Routing {
   func cleanupViews()
-  func attachAddPaymentMethod()
+  func attachAddPaymentMethod(closeButtonType: DismissButtonType)
   func detachAddPaymentMethod()
   func attachEnterAmount()
   func detachEnterAmount()
   func attachCardOnFile(paymentMethods: [PaymentMethod])
   func detachCardOnFile()
+  func popToRoot()
 }
 
 protocol TopupListener: AnyObject {
@@ -34,6 +35,8 @@ final class TopupInteractor: Interactor {
   
   let presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy
   
+  private var isEnterAmountRoot: Bool = false
+  
   private var paymenntMethods: [PaymentMethod] {
     return dependency.cardOnFileRepository.cardOnFile.value
   }
@@ -51,11 +54,12 @@ final class TopupInteractor: Interactor {
     super.didBecomeActive()
     
     if let card = dependency.cardOnFileRepository.cardOnFile.value.first {
+      isEnterAmountRoot = true
       dependency.paymentMethodStream.send(card)
       router?.attachEnterAmount()
     } else {
-      router?.attachAddPaymentMethod()
-      
+      isEnterAmountRoot = false
+      router?.attachAddPaymentMethod(closeButtonType: .close)
     }
   }
   
@@ -80,11 +84,20 @@ extension TopupInteractor: AdaptivePresentationControllerDelegate {
 extension TopupInteractor: TopupInteractable {
   func addPaymentMethodDidTapClose() {
     router?.detachAddPaymentMethod()
-    listener?.topupDidClose()
+    if isEnterAmountRoot == false {
+      listener?.topupDidClose()
+    }
   }
   
   func addPaymentMethodDidAddCard(paymentMethod: PaymentMethod) {
+    dependency.paymentMethodStream.send(paymentMethod)
     
+    if isEnterAmountRoot {
+      router?.popToRoot()
+    } else {
+      isEnterAmountRoot = true
+      router?.attachEnterAmount()
+    }
   }
   
   func enterAmountDidTapClose() {
@@ -105,7 +118,7 @@ extension TopupInteractor: TopupInteractable {
   }
   
   func cardOnFileDidTapAddCard() {
-    
+    router?.attachAddPaymentMethod(closeButtonType: .back)
   }
   
   func cardOnFileDidSelect(at index: Int) {

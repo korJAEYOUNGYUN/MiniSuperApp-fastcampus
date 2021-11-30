@@ -57,11 +57,16 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
   
   private let viewController: ViewControllable
   
-  func attachAddPaymentMethod() {
+  func attachAddPaymentMethod(closeButtonType: DismissButtonType) {
     guard addPaymentMethodRouting == nil else { return }
     
-    let router = addPaymentMethodBuildable.build(withListener: interactor)
-    presentInsideNavigation(router.viewControllable)
+    let router = addPaymentMethodBuildable.build(withListener: interactor, closeButtonType: closeButtonType)
+    
+    if let navigationControllable = navigationControllable {
+      navigationControllable.pushViewController(router.viewControllable, animated: true)
+    } else {
+      presentInsideNavigation(router.viewControllable)
+    }
     attachChild(router)
     addPaymentMethodRouting = router
   }
@@ -69,17 +74,23 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
   func detachAddPaymentMethod() {
     guard let router = addPaymentMethodRouting else { return }
     
-    dismissPresentedNavigation {
-      self.addPaymentMethodRouting = nil
-      self.detachChild(router)
-    }
+    navigationControllable?.popViewController(animated: true)
+    addPaymentMethodRouting = nil
+    detachChild(router)
+
   }
   
   func attachEnterAmount() {
     guard enterAmountRouting == nil else { return }
     
     let router = enterAmountBuildable.build(withListener: interactor)
-    presentInsideNavigation(router.viewControllable)
+    
+    if let navigation = navigationControllable {
+      navigation.setViewControllers([router.viewControllable])
+      resetChildRouting()
+    } else {
+      presentInsideNavigation(router.viewControllable)
+    }
     attachChild(router)
     enterAmountRouting = router
   }
@@ -110,6 +121,11 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
     detachChild(router)
   }
   
+  func popToRoot() {
+    navigationControllable?.popToRoot(animated: true)
+    resetChildRouting()
+  }
+  
   private func presentInsideNavigation(_ viewControllable: ViewControllable) {
     let navigation = NavigationControllerable(root: viewControllable)
     navigation.navigationController.presentationController?.delegate = interactor.presentationDelegateProxy
@@ -122,5 +138,17 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
     
     viewController.dismiss(completion: nil)
     navigationControllable = nil
+  }
+  
+  private func resetChildRouting() {
+    if let cardOnFileRouting = cardOnFileRouting {
+      detachChild(cardOnFileRouting)
+      self.cardOnFileRouting = nil
+    }
+    
+    if let addPaymentMethodRouting = addPaymentMethodRouting {
+      detachChild(addPaymentMethodRouting)
+      self.addPaymentMethodRouting = nil
+    }
   }
 }
