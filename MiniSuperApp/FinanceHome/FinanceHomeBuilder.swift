@@ -1,7 +1,8 @@
 import ModernRIBs
 
 protocol FinanceHomeDependency: Dependency {
-  
+  var cardOnFileRepository: CardOnFileRepository { get }
+  var superPayRepository: SuperPayRepository { get }
 }
 
 final class FinanceHomeComponent: Component<FinanceHomeDependency>,
@@ -9,19 +10,15 @@ final class FinanceHomeComponent: Component<FinanceHomeDependency>,
                                   CardOnFileDashboardDependency,
                                   AddPaymentMethodDependency,
                                   TopupDependency {
-  let cardOnFileRepository: CardOnFileRepository
-  let superPayRepository: SuperPayRepository
+  var cardOnFileRepository: CardOnFileRepository { dependency.cardOnFileRepository }
+  var superPayRepository: SuperPayRepository { dependency.superPayRepository }
   var balance: ReadOnlyCurrentValuePublisher<Double> { superPayRepository.balance }
   var topupBaseViewController: ViewControllable
   
   init(
     dependency: FinanceHomeDependency,
-    cardOnFileRepository: CardOnFileRepository,
-    superPayRepository: SuperPayRepository,
     topupBaseViewController: ViewControllable
   ) {
-    self.cardOnFileRepository = cardOnFileRepository
-    self.superPayRepository = superPayRepository
     self.topupBaseViewController = topupBaseViewController
     super.init(dependency: dependency)
   }
@@ -41,15 +38,11 @@ final class FinanceHomeBuilder: Builder<FinanceHomeDependency>, FinanceHomeBuild
   
   func build(withListener listener: FinanceHomeListener) -> FinanceHomeRouting {
     let balancePublisher = CurrentValuePublisher<Double>(0)
-    let cardOnFileRepository = CardOnFileRepositoryImp()
-    let superPayRepository = SuperPayRepositoryImp()
     
     let viewController = FinanceHomeViewController()
     
     let component = FinanceHomeComponent(
       dependency: dependency,
-      cardOnFileRepository: cardOnFileRepository,
-      superPayRepository: superPayRepository,
       topupBaseViewController: viewController
     )
     
