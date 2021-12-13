@@ -6,6 +6,7 @@
 //
 
 import ModernRIBs
+import FinanceEntity
 
 protocol CardOnFileDependency: Dependency {
 }

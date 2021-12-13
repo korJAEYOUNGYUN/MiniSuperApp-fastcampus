@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIView {
-  func addShadowWithRoundedCorners(
+  public func addShadowWithRoundedCorners(
     _ radius: CGFloat = 16,
     shadowColor: CGColor = UIColor.black.cgColor,
     opacity: Float = 0.1
@@ -15,7 +15,7 @@ extension UIView {
     self.layer.cornerRadius = radius
   }
   
-  func roundCorners(
+  public func roundCorners(
     _ radius: CGFloat = 16
   ) {
     self.layer.cornerCurve = .continuous

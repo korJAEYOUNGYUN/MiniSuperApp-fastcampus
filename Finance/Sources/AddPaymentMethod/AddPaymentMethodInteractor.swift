@@ -7,6 +7,8 @@
 
 import ModernRIBs
 import Combine
+import FinanceEntity
+import FinanceRepository
 
 protocol AddPaymentMethodRouting: ViewableRouting {
 }
@@ -15,7 +17,7 @@ protocol AddPaymentMethodPresentable: Presentable {
   var listener: AddPaymentMethodPresentableListener? { get set }
 }
 
-protocol AddPaymentMethodListener: AnyObject {
+public protocol AddPaymentMethodListener: AnyObject {
   func addPaymentMethodDidTapClose()
   func addPaymentMethodDidAddCard(paymentMethod: PaymentMethod)
 }

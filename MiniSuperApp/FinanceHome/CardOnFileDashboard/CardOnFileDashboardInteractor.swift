@@ -7,6 +7,7 @@
 
 import ModernRIBs
 import Combine
+import FinanceRepository
 
 protocol CardOnFileDashboardRouting: ViewableRouting {
 }
