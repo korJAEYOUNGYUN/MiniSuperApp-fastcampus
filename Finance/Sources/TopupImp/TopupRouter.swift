@@ -10,6 +10,7 @@ import AddPaymentMethod
 import RIBsUtil
 import SuperUI
 import FinanceEntity
+import Topup
 
 protocol TopupInteractable: Interactable,
                             AddPaymentMethodListener,
