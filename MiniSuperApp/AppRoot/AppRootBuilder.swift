@@ -22,16 +22,11 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
     super.init(dependency: dependency)
   }
   
-  func build() -> (launchRouter: LaunchRouting, urlHandler: URLHandler) {
-    let cardOnFileRepository = CardOnFileRepositoryImp()
-    let superPayRepository = SuperPayRepositoryImp()
-    
+  func build() -> (launchRouter: LaunchRouting, urlHandler: URLHandler) {    
     let tabBar = RootTabBarController()
     
     let component = AppRootComponent(
       dependency: dependency,
-      cardOnFileRepository: cardOnFileRepository,
-      superPayRepository: superPayRepository,
       rootViewController: tabBar
     )
     

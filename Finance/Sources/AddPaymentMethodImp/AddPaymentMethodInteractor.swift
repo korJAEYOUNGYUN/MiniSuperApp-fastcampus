@@ -5,6 +5,7 @@
 //  Created by jaeyoung Yun on 2021/11/15.
 //
 
+import Foundation
 import ModernRIBs
 import Combine
 import FinanceEntity
@@ -67,6 +68,7 @@ extension AddPaymentMethodInteractor: AddPaymentMethodPresentableListener {
   func didTapConfirm(with number: String, cvc: String, expiry: String) {
     let info = AddPaymentMethodInfo(number: number, cvc: cvc, expiration: expiry)
     dependency.cardOnFileRepository.addCard(info: info)
+      .receive(on: DispatchQueue.main)
       .sink(
         receiveCompletion: { _ in },
         receiveValue: { [weak self] method in
