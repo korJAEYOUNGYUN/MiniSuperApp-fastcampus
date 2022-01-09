@@ -20,6 +20,10 @@ let package = Package(
       targets: ["RIBsTestSupport"]
     ),
     .library(
+      name: "PlatformTestSupport",
+      targets: ["PlatformTestSupport"]
+    ),
+    .library(
       name: "SuperUI",
       targets: ["SuperUI"]
     ),
@@ -39,7 +43,8 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/CombineCommunity/CombineExt", from: "1.0.0"),
     .package(name: "ModernRIBs", url: "https://github.com/DevYeom/ModernRIBs", .exact("1.0.1")),
-    .package(url: "https://github.com/pointfreeco/combine-schedulers", from: "0.5.3")
+    .package(url: "https://github.com/pointfreeco/combine-schedulers", from: "0.5.3"),
+    .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.9.0")
   ],
   targets: [
     .target(
@@ -59,6 +64,12 @@ let package = Package(
       name: "RIBsTestSupport",
       dependencies: [
         "ModernRIBs"
+      ]
+    ),
+    .target(
+      name: "PlatformTestSupport",
+      dependencies: [
+        "SnapshotTesting"
       ]
     ),
     .target(
