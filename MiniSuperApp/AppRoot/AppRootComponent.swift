@@ -51,9 +51,13 @@ final class AppRootComponent: Component<AppRootDependency>,
     dependency: AppRootDependency,
     rootViewController: ViewControllable
   ) {
+    #if UITESTING
+    let config = URLSessionConfiguration.default
+    #else
     let config = URLSessionConfiguration.ephemeral
     config.protocolClasses = [SuperAppURLProtocol.self]
     setupURLProtocol()
+    #endif
     
     let network = NetworkImp(session: .init(configuration: config))
     
