@@ -18,6 +18,11 @@
 		003D2FC52778A6360024C233 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D2FC42778A6360024C233 /* BaseURL.swift */; };
 		003D2FC72778A7C80024C233 /* SuperAppURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D2FC62778A7C80024C233 /* SuperAppURLProtocol.swift */; };
 		003D2FC92778AAD60024C233 /* SetupURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D2FC82778AAD60024C233 /* SetupURLProtocol.swift */; };
+		006C78DA2793A7E700F6AF7B /* AddPaymentMethodImp in Frameworks */ = {isa = PBXBuildFile; productRef = 006C78D92793A7E700F6AF7B /* AddPaymentMethodImp */; };
+		006C78DC2793A7EF00F6AF7B /* AddPaymentMethodTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 006C78DB2793A7EF00F6AF7B /* AddPaymentMethodTestSupport */; };
+		006C78DE2793A7F700F6AF7B /* AddPaymentMethod in Frameworks */ = {isa = PBXBuildFile; productRef = 006C78DD2793A7F700F6AF7B /* AddPaymentMethod */; };
+		006C78E02793A86300F6AF7B /* FinanceRepositoryTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 006C78DF2793A86300F6AF7B /* FinanceRepositoryTestSupport */; };
+		006C78E22793A86D00F6AF7B /* FinanceRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 006C78E12793A86D00F6AF7B /* FinanceRepository */; };
 		007DDBDF278B0AAA00F5AA8B /* MiniSuperAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DDBDE278B0AAA00F5AA8B /* MiniSuperAppUITests.swift */; };
 		007DDBE8278B0B5100F5AA8B /* TopupImpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DDBE7278B0B5100F5AA8B /* TopupImpUITests.swift */; };
 		007DDBED278B105D00F5AA8B /* PlatformTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 007DDBEC278B105D00F5AA8B /* PlatformTestSupport */; };
@@ -27,6 +32,11 @@
 		00861BD62770AD390005C14F /* AppHome in Frameworks */ = {isa = PBXBuildFile; productRef = 00861BD52770AD390005C14F /* AppHome */; };
 		0094DB6F2770B29C00C8A278 /* ProfileHome in Frameworks */ = {isa = PBXBuildFile; productRef = 0094DB6E2770B29C00C8A278 /* ProfileHome */; };
 		0094DB712771F6BE00C8A278 /* AppRootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094DB702771F6BE00C8A278 /* AppRootComponent.swift */; };
+		00BC4E132793A44A0043F1BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC4E122793A44A0043F1BE /* AppDelegate.swift */; };
+		00BC4E1C2793A44C0043F1BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00BC4E1B2793A44C0043F1BE /* Assets.xcassets */; };
+		00BC4E1F2793A44C0043F1BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00BC4E1D2793A44C0043F1BE /* LaunchScreen.storyboard */; };
+		00BC4E2C2793A5560043F1BE /* AddPaymentMethodIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC4E2B2793A5560043F1BE /* AddPaymentMethodIntegrationTests.swift */; };
+		00BC4E342793A5E50043F1BE /* PlatformTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 00BC4E332793A5E50043F1BE /* PlatformTestSupport */; };
 		00CF174427720A3C008264BA /* AddPaymentMethodImp in Frameworks */ = {isa = PBXBuildFile; productRef = 00CF174327720A3C008264BA /* AddPaymentMethodImp */; };
 		00E579B32770AB51006AC731 /* TransportHome in Frameworks */ = {isa = PBXBuildFile; productRef = 00E579B22770AB51006AC731 /* TransportHome */; };
 		00E87D1C276785B1003C20C2 /* FinanceEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 00E87D1B276785B1003C20C2 /* FinanceEntity */; };
@@ -54,6 +64,13 @@
 			remoteGlobalIDString = F5829F5426DB2BC400BFA8CD;
 			remoteInfo = MiniSuperApp;
 		};
+		00BC4E2D2793A5560043F1BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5829F4D26DB2BC400BFA8CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00BC4E0F2793A44A0043F1BE;
+			remoteInfo = TestHost;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +90,13 @@
 		007DDBF1278B127B00F5AA8B /* TestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
 		007DDBF3278B152300F5AA8B /* topupSuccessResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topupSuccessResponse.json; sourceTree = "<group>"; };
 		0094DB702771F6BE00C8A278 /* AppRootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootComponent.swift; sourceTree = "<group>"; };
+		00BC4E102793A44A0043F1BE /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00BC4E122793A44A0043F1BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		00BC4E1B2793A44C0043F1BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00BC4E1E2793A44C0043F1BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		00BC4E202793A44C0043F1BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00BC4E292793A5560043F1BE /* AddPaymentMethodIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AddPaymentMethodIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00BC4E2B2793A5560043F1BE /* AddPaymentMethodIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodIntegrationTests.swift; sourceTree = "<group>"; };
 		F57F6AFD26DB4CD700C0117D /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		F5829F5526DB2BC400BFA8CD /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5829F5826DB2BC400BFA8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +115,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				007DDBED278B105D00F5AA8B /* PlatformTestSupport in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BC4E0D2793A44A0043F1BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BC4E262793A5560043F1BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				006C78E02793A86300F6AF7B /* FinanceRepositoryTestSupport in Frameworks */,
+				006C78DE2793A7F700F6AF7B /* AddPaymentMethod in Frameworks */,
+				00BC4E342793A5E50043F1BE /* PlatformTestSupport in Frameworks */,
+				006C78E22793A86D00F6AF7B /* FinanceRepository in Frameworks */,
+				006C78DA2793A7E700F6AF7B /* AddPaymentMethodImp in Frameworks */,
+				006C78DC2793A7EF00F6AF7B /* AddPaymentMethodTestSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +193,25 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		00BC4E112793A44A0043F1BE /* TestHost */ = {
+			isa = PBXGroup;
+			children = (
+				00BC4E122793A44A0043F1BE /* AppDelegate.swift */,
+				00BC4E1B2793A44C0043F1BE /* Assets.xcassets */,
+				00BC4E1D2793A44C0043F1BE /* LaunchScreen.storyboard */,
+				00BC4E202793A44C0043F1BE /* Info.plist */,
+			);
+			path = TestHost;
+			sourceTree = "<group>";
+		};
+		00BC4E2A2793A5560043F1BE /* AddPaymentMethodIntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				00BC4E2B2793A5560043F1BE /* AddPaymentMethodIntegrationTests.swift */,
+			);
+			path = AddPaymentMethodIntegrationTests;
+			sourceTree = "<group>";
+		};
 		F57F6AFF26DB585100C0117D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +230,8 @@
 				00397CE6276775540069814F /* CX */,
 				F5829F5726DB2BC400BFA8CD /* MiniSuperApp */,
 				007DDBDD278B0AAA00F5AA8B /* MiniSuperAppUITests */,
+				00BC4E112793A44A0043F1BE /* TestHost */,
+				00BC4E2A2793A5560043F1BE /* AddPaymentMethodIntegrationTests */,
 				F5829F5626DB2BC400BFA8CD /* Products */,
 				00397CEB276777520069814F /* Frameworks */,
 			);
@@ -177,6 +242,8 @@
 			children = (
 				F5829F5526DB2BC400BFA8CD /* MiniSuperApp.app */,
 				007DDBDC278B0AAA00F5AA8B /* MiniSuperAppUITests.xctest */,
+				00BC4E102793A44A0043F1BE /* TestHost.app */,
+				00BC4E292793A5560043F1BE /* AddPaymentMethodIntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,6 +309,49 @@
 			productReference = 007DDBDC278B0AAA00F5AA8B /* MiniSuperAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		00BC4E0F2793A44A0043F1BE /* TestHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00BC4E242793A44C0043F1BE /* Build configuration list for PBXNativeTarget "TestHost" */;
+			buildPhases = (
+				00BC4E0C2793A44A0043F1BE /* Sources */,
+				00BC4E0D2793A44A0043F1BE /* Frameworks */,
+				00BC4E0E2793A44A0043F1BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestHost;
+			productName = TestHost;
+			productReference = 00BC4E102793A44A0043F1BE /* TestHost.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00BC4E282793A5560043F1BE /* AddPaymentMethodIntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00BC4E2F2793A5560043F1BE /* Build configuration list for PBXNativeTarget "AddPaymentMethodIntegrationTests" */;
+			buildPhases = (
+				00BC4E252793A5560043F1BE /* Sources */,
+				00BC4E262793A5560043F1BE /* Frameworks */,
+				00BC4E272793A5560043F1BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00BC4E2E2793A5560043F1BE /* PBXTargetDependency */,
+			);
+			name = AddPaymentMethodIntegrationTests;
+			packageProductDependencies = (
+				00BC4E332793A5E50043F1BE /* PlatformTestSupport */,
+				006C78D92793A7E700F6AF7B /* AddPaymentMethodImp */,
+				006C78DB2793A7EF00F6AF7B /* AddPaymentMethodTestSupport */,
+				006C78DD2793A7F700F6AF7B /* AddPaymentMethod */,
+				006C78DF2793A86300F6AF7B /* FinanceRepositoryTestSupport */,
+				006C78E12793A86D00F6AF7B /* FinanceRepository */,
+			);
+			productName = AddPaymentMethodIntegrationTests;
+			productReference = 00BC4E292793A5560043F1BE /* AddPaymentMethodIntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F5829F5426DB2BC400BFA8CD /* MiniSuperApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5829F6926DB2BC500BFA8CD /* Build configuration list for PBXNativeTarget "MiniSuperApp" */;
@@ -292,6 +402,13 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = F5829F5426DB2BC400BFA8CD;
 					};
+					00BC4E0F2793A44A0043F1BE = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					00BC4E282793A5560043F1BE = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 00BC4E0F2793A44A0043F1BE;
+					};
 					F5829F5426DB2BC400BFA8CD = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -316,6 +433,8 @@
 			targets = (
 				F5829F5426DB2BC400BFA8CD /* MiniSuperApp */,
 				007DDBDB278B0AAA00F5AA8B /* MiniSuperAppUITests */,
+				00BC4E0F2793A44A0043F1BE /* TestHost */,
+				00BC4E282793A5560043F1BE /* AddPaymentMethodIntegrationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -327,6 +446,22 @@
 			files = (
 				007DDBF0278B119900F5AA8B /* cardOnFile.json in Resources */,
 				007DDBF4278B152300F5AA8B /* topupSuccessResponse.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BC4E0E2793A44A0043F1BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BC4E1F2793A44C0043F1BE /* LaunchScreen.storyboard in Resources */,
+				00BC4E1C2793A44C0043F1BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BC4E272793A5560043F1BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +484,22 @@
 				007DDBDF278B0AAA00F5AA8B /* MiniSuperAppUITests.swift in Sources */,
 				007DDBF2278B127B00F5AA8B /* TestUtil.swift in Sources */,
 				007DDBE8278B0B5100F5AA8B /* TopupImpUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BC4E0C2793A44A0043F1BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BC4E132793A44A0043F1BE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00BC4E252793A5560043F1BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BC4E2C2793A5560043F1BE /* AddPaymentMethodIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,9 +529,22 @@
 			target = F5829F5426DB2BC400BFA8CD /* MiniSuperApp */;
 			targetProxy = 007DDBE2278B0AAA00F5AA8B /* PBXContainerItemProxy */;
 		};
+		00BC4E2E2793A5560043F1BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00BC4E0F2793A44A0043F1BE /* TestHost */;
+			targetProxy = 00BC4E2D2793A5560043F1BE /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		00BC4E1D2793A44C0043F1BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00BC4E1E2793A44C0043F1BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		F5829F6326DB2BC500BFA8CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -539,6 +703,162 @@
 				TEST_TARGET_NAME = MiniSuperApp;
 			};
 			name = UITESTING;
+		};
+		00BC4E212793A44C0043F1BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestHost/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyoungyun.TestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00BC4E222793A44C0043F1BE /* UITESTING */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestHost/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyoungyun.TestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = UITESTING;
+		};
+		00BC4E232793A44C0043F1BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestHost/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyoungyun.TestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		00BC4E302793A5560043F1BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyoungyun.AddPaymentMethodIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/TestHost";
+			};
+			name = Debug;
+		};
+		00BC4E312793A5560043F1BE /* UITESTING */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyoungyun.AddPaymentMethodIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/TestHost";
+			};
+			name = UITESTING;
+		};
+		00BC4E322793A5560043F1BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyoungyun.AddPaymentMethodIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/TestHost";
+			};
+			name = Release;
 		};
 		F5829F6726DB2BC500BFA8CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -705,6 +1025,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		00BC4E242793A44C0043F1BE /* Build configuration list for PBXNativeTarget "TestHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00BC4E212793A44C0043F1BE /* Debug */,
+				00BC4E222793A44C0043F1BE /* UITESTING */,
+				00BC4E232793A44C0043F1BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00BC4E2F2793A5560043F1BE /* Build configuration list for PBXNativeTarget "AddPaymentMethodIntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00BC4E302793A5560043F1BE /* Debug */,
+				00BC4E312793A5560043F1BE /* UITESTING */,
+				00BC4E322793A5560043F1BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F5829F5026DB2BC400BFA8CD /* Build configuration list for PBXProject "MiniSuperApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -776,6 +1116,26 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkImp;
 		};
+		006C78D92793A7E700F6AF7B /* AddPaymentMethodImp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AddPaymentMethodImp;
+		};
+		006C78DB2793A7EF00F6AF7B /* AddPaymentMethodTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AddPaymentMethodTestSupport;
+		};
+		006C78DD2793A7F700F6AF7B /* AddPaymentMethod */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AddPaymentMethod;
+		};
+		006C78DF2793A86300F6AF7B /* FinanceRepositoryTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FinanceRepositoryTestSupport;
+		};
+		006C78E12793A86D00F6AF7B /* FinanceRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FinanceRepository;
+		};
 		007DDBEC278B105D00F5AA8B /* PlatformTestSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PlatformTestSupport;
@@ -787,6 +1147,10 @@
 		0094DB6E2770B29C00C8A278 /* ProfileHome */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ProfileHome;
+		};
+		00BC4E332793A5E50043F1BE /* PlatformTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PlatformTestSupport;
 		};
 		00CF174327720A3C008264BA /* AddPaymentMethodImp */ = {
 			isa = XCSwiftPackageProductDependency;
